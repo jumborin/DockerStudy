@@ -1,13 +1,24 @@
 # bitnami/redmineの標準コンテナの利用
 
-#事前準備
+##事前準備
+
 dockerとdocker-composeが利用可能であること。(Windows機の場合、DockerDesktopインストール済みであればよい）
 
-#元ファイル
+##元ファイル
+
 https://raw.githubusercontent.com/bitnami/bitnami-docker-redmine/master/docker-compose.yml
 
-#使用時コマンド
+#コンテナ起動コマンド
 docker-compose up -d
+
+#コンテナ終了コマンド
+docker-compose down
+
+#データ削除コマンド（ボリューム削除）
+##MySQLのコンテナのデータ削除（登録データの削除等）
+docker volume rm virtuale_mariadb_data
+##Redmineのコンテナのデータ削除（プラグイン削除等）
+docker volume rm virtuale_redmine_data
 
 #注意点
 docker-compose.ymlを格納するフォルダおよび実行時のカレントディレクトリのフルパスには日本語が含まれていないこと。

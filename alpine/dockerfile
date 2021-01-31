@@ -14,10 +14,12 @@ LABEL description="テスト。XXのサーバ"
 # RUN apt-get install -y apache2
 # RUN apt-get install -y git
 
+# インストール(AlpineLinux用)
 RUN apk update
 RUN apk add bash
 RUN apk add apache2
 RUN apk add git
+# RUN apk add subversion
 
 
 # 各環境変数を設定

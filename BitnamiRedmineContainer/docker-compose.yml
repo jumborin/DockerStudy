@@ -1,5 +1,4 @@
-# BitnamiRedmine‚Ìdocker-composeƒtƒ@ƒCƒ‹
-version: '2'
+version: '3'
 services:
   mariadb:
     image: 'docker.io/bitnami/mariadb:10.3-debian-10'

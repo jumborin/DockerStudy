@@ -33,6 +33,9 @@ docker volume rm フォルダ名_mariadb_data
 ### Redmineのコンテナのデータ削除（プラグイン削除等）
 docker volume rm フォルダ名_redmine_data
 
+## コンテナ内からホストにファイルをコピー
+docker cp コンテナID:/ファイル名 /
+
 # Redmineの初期設定
 ## デフォルト設定
 Redmine管理者ユーザ名：user
@@ -45,5 +48,19 @@ DB名：bitnami_redmine
 MYSQLサーバのホスト名：mariadb
 PostgreSQLサーバのホスト名：なし
 DBサーバのポート番号：3306
+
+
+# Pluginsインストール手順
+- プラグインフォルダに移動
+cd /bitnami/redmine/plugins/
+
+プラグインを配置する。
+
+# メール設定手順(MTA導入&Redmine)
+cd /bitnami/redmine/conf/
+configulation.yamlを修正。
+apt update
+apt install posifix
+/etc/init.d/postfix start
 
 以上

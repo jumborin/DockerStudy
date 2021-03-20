@@ -6,4 +6,8 @@
 ## アクセス方法
 - ブラウザでhttp://localhostにアクセス
 
+## 初期パスワード　※初回ログイン時にパスワード変更
+- username: root
+- password: 5iveL!fe
+
 以上

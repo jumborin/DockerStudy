@@ -1,19 +1,27 @@
 # DockerStudy
-Windows機でのDocker利用勉強用リポジトリ
+Windows10機でのDocker利用勉強用リポジトリ
 
 # 事前準備
-DockerDesktopをインストールする。
+DockerDesktopをインストールする。(docker・docker-composeを利用)
 
-# DockerDesktopダウンロードサイト
+## DockerDesktopダウンロードサイト
 https://www.docker.com/products/docker-desktop
 
-# alpineフォルダ
+# フォルダ説明
+## alpineフォルダ
 alpineLinux公式イメージ
 
-# BitnamiRedmineContainerフォルダ
+## BitnamiRedmineContainerフォルダ
 bitnami/redmineのイメージ利用法
 
-# redmineフォルダ
+## gitlabフォルダ
+gitlab_eeのイメージ利用法
+
+## redmineフォルダ
 redmine公式イメージ利用法
+
+## sammersbnRedmineフォルダ
+sameersbn/redmineのイメージ利用法
+
 
 以上

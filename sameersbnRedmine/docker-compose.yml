@@ -16,7 +16,7 @@ services:
     depends_on:
     - postgresql
     environment:
-    - TZ=Asia/Kolkata
+    - TZ=Asia/Tokyo
 
     - DB_ADAPTER=postgresql
     - DB_HOST=postgresql
@@ -58,7 +58,7 @@ services:
     - IMAP_INTERVAL=30
 
     ports:
-    - "10083:80"
+    - "8080:80"
     volumes:
     - /srv/docker/redmine/redmine:/home/redmine/data
     - /srv/docker/redmine/redmine-logs:/var/log/redmine

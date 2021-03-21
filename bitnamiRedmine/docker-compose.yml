@@ -14,7 +14,7 @@ services:
       - REDMINE_DB_USERNAME=bn_redmine
       - REDMINE_DB_NAME=bitnami_redmine
     ports:
-      - '80:3000'
+      - '8080:3000'
     volumes:
       - 'redmine_data:/bitnami'
     depends_on:

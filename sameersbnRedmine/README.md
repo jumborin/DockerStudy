@@ -7,4 +7,18 @@ docker-compose up -d
 userid:admin
 password:admin
 
+## 手動バックアップコマンド
+docker exec -it sameersbnredmine_redmine_1 redmine-backup-create
+
+- バックアップファイルはタイムスタンプが先頭につく。
+- 現在のタイムスタンプの算出コマンド
+date "+%s"
+
+- バックアップのタイムスタンプから日時を算出するコマンド
+date --date @タイムスタンプ "+%m/%d/%Y %H:%M"
+
+## 手動リストアコマンド(Windowsだとエラー)
+docker stop sameersbnredmine_redmine_1 && docker rm sameersbnredmine_redmine_1
+docker run --name sameersbnredmine_redmine_1 -it --rm sameersbn/redmine:4.1.1-9 app:backup:restore BACKUP = バックアップファイル
+
 以上

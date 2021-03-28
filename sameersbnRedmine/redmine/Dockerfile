@@ -24,6 +24,8 @@ RUN set -ux \
     
     && gosu redmine git clone -b redmine4.1 --depth 1 https://github.com/farend/redmine_theme_farend_bleuclair.git public/themes/bleuclair \
     && gosu redmine git clone --depth 1 https://github.com/farend/redmine_theme_farend_basic.git public/themes/farend_basic \
+    && gosu redmine git clone --depth 1 https://github.com/ChrisMcKee/redmine-themes.git public/themes/CM-Red \
+    && gosu redmine git clone --depth 1 https://github.com/makotokw/redmine-theme-gitmike.git public/themes/gitmike \
     
     && gosu redmine bundle install --no-cache \
     

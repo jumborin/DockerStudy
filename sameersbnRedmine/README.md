@@ -21,4 +21,12 @@ date --date @タイムスタンプ "+%m/%d/%Y %H:%M"
 docker stop sameersbnredmine_redmine_1 && docker rm sameersbnredmine_redmine_1
 docker run --name sameersbnredmine_redmine_1 -it --rm sameersbn/redmine:4.1.1-9 app:backup:restore BACKUP = バックアップファイル
 
+## OSアップデート
+- 下記コマンドを実行してコンテナのOSをLTS版にアップデートしておく。
+apt update
+apt upgrade
+apt install update-manager
+apt dist-upgrade
+do-release-upgrade
+
 以上

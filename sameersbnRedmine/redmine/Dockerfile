@@ -1,8 +1,8 @@
 FROM sameersbn/redmine:4.1.1-9
 #FROM sameersbn/redmine:latest
 
-# COPY scm.yml /home/redmine/redmine/config
-# COPY default /etc/nginx/sites-available
+COPY scm.yml /home/redmine/redmine/config
+COPY default /etc/nginx/sites-available
 
 RUN set -ux \
     && apt update \
@@ -29,10 +29,7 @@ RUN set -ux \
     
     && gosu redmine bundle install --no-cache \
     
-    #&& mkdir /home/redmine/data/repos \
-    #&& mkdir /home/redmine/data/repos/svn \
-    #&& chown www-data:www-data /home/redmine/data/repos/svn \
-    #&& chmod 0755 /home/redmine/data/repos/svn 
-    #&& docker cp scm.yml sameersbnredmine_redmine_1:/home/redmine/redmine/config/ \
-    #&& docker cp default sameersbnredmine_redmine_1:/etc/nginx/sites-available/
+    && mkdir -p /home/redmine/data/repos/svn \
+    && chown www-data:www-data /home/redmine/data/repos/svn \
+    && chmod 0755 /home/redmine/data/repos/svn 
     

@@ -1,4 +1,4 @@
-FROM sameersbn/redmine:4.1.1-9
+FROM sameersbn/redmine:4.2.0
 #FROM sameersbn/redmine:latest
 
 COPY scm.yml /home/redmine/redmine/config

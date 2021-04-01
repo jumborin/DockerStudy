@@ -61,8 +61,6 @@ services:
 
     ports:
     - "8080:80"
-    - "443:443"
-    - "3000:3000"
     volumes:
     - ./volumes/redmine:/home/redmine/data
     - ./volumes/redmine-logs:/var/log/redmine

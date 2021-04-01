@@ -31,5 +31,5 @@ RUN set -ux \
     
     && mkdir -p /home/redmine/data/repos/svn \
     && chown www-data:www-data /home/redmine/data/repos/svn \
-    && chmod 0755 /home/redmine/data/repos/svn 
+    && chmod 755 /home/redmine/data/repos/svn 
     

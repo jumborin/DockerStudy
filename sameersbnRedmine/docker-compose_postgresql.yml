@@ -1,34 +1,33 @@
-version: '2'
+version: '3'
 
 services:
-  mysql:
-    build:
-      context: ./mysql
-    restart: always
+  postgresql:
+    build: ./postgresql
     environment:
     - DB_USER=redmine
     - DB_PASS=password
     - DB_NAME=redmine_production
+    - TZ=Asia/Tokyo
     volumes:
-    - ./volumes/mysql:/var/lib/mysql
+    - ./volumes/postgresql:/var/lib/postgresql
 
   redmine:
     build:
       context: ./redmine
     restart: always
     depends_on:
-    - mysql
+    - postgresql
     environment:
     - TZ=Asia/Tokyo
 
-    - DB_ADAPTER=mysql2
-    - DB_HOST=mysql
-    - DB_PORT=3306
+    - DB_ADAPTER=postgresql
+    - DB_HOST=postgresql
+    - DB_PORT=5432
     - DB_USER=redmine
     - DB_PASS=password
     - DB_NAME=redmine_production
 
-    - REDMINE_PORT=8081
+    - REDMINE_PORT=8080
     - REDMINE_HTTPS=false
     - REDMINE_RELATIVE_URL_ROOT=
     - REDMINE_SECRET_TOKEN=
@@ -61,7 +60,7 @@ services:
     - IMAP_INTERVAL=30
 
     ports:
-    - "8081:80"
+    - "8080:80"
     volumes:
     - ./volumes/redmine_data:/home/redmine/data
     - ./volumes/redmine_logs:/var/log/redmine

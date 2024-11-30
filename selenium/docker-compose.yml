@@ -1,0 +1,27 @@
+services:
+  selenium-hub:
+    image: selenium/hub
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+      - "5900:5900"
+      - "7900:7900"
+    environment:
+      GRID_MAX_SESSION: 5
+      GRID_BROWSER_TIMEOUT: 60
+      GRID_TIMEOUT: 30
+
+  chrome:
+    image: selenium/node-chrome
+    container_name: chrome
+    shm_size: "2g"
+    depends_on:
+      - selenium-hub
+    environment:
+      SE_EVENT_BUS_HOST: selenium-hub
+      SE_EVENT_BUS_PUBLISH_PORT: 4442
+      SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
+    volumes:
+      - ./\code:/home/seluser/code
+      - ./\screenshot:/home/seluser/screenshot
+

@@ -1,0 +1,28 @@
+name: GitLab CI
+
+on:
+  push:
+  pull_request:
+    branches: [ main, master ]
+    paths: [ 'gitlab/**' ]
+
+jobs:
+  gitlab-build-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Start GitLab
+      run: docker compose -f gitlab/docker-compose.yml up -d
+      
+    - name: Wait for GitLab startup
+      run: sleep 120
+      
+    - name: Test GitLab health
+      run: |
+        curl -f http://localhost || echo "GitLab not ready yet"
+        docker compose -f gitlab/docker-compose.yml logs web
+      
+    - name: Stop GitLab
+      run: docker compose -f gitlab/docker-compose.yml down

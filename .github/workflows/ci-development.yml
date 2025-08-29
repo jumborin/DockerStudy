@@ -2,8 +2,6 @@ name: CI Development Environment
 
 on:
   push:
-    branches: [ main, master ]
-    paths: [ 'ci-development/**' ]
   pull_request:
     branches: [ main, master ]
     paths: [ 'ci-development/**' ]

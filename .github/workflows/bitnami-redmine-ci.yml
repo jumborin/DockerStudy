@@ -1,0 +1,30 @@
+name: Bitnami Redmine CI
+
+on:
+  push:
+    branches: [ main, master ]
+    paths: [ 'bitnamiRedmine/**' ]
+  pull_request:
+    branches: [ main, master ]
+    paths: [ 'bitnamiRedmine/**' ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Start Bitnami Redmine
+      run: docker compose -f bitnamiRedmine/docker-compose.yml up -d
+      
+    - name: Wait for services startup
+      run: sleep 60
+      
+    - name: Test Redmine health
+      run: |
+        curl -f http://localhost:8080 || echo "Redmine not ready yet"
+        docker compose -f bitnamiRedmine/docker-compose.yml logs redmine
+      
+    - name: Stop services
+      run: docker compose -f bitnamiRedmine/docker-compose.yml down

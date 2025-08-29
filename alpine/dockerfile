@@ -1,20 +1,20 @@
-# ƒx[ƒXƒCƒ[ƒW
+# ãƒ™ãƒ¼ã‚¹ã‚¤ãƒ¡ãƒ¼ã‚¸
 FROM alpine:3.13
-# QlFhttps://hub.docker.com/_/alpine
+# å‚è€ƒï¼šhttps://hub.docker.com/_/alpine
 
-# ì¬Ò
+# ä½œæˆè€…
 MAINTAINER jumborin
 
-# ƒCƒ[ƒWƒ‰ƒxƒ‹
+# ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ©ãƒ™ãƒ«
 LABEL version="1.0"
-LABEL description="ƒeƒXƒgBXX‚ÌƒT[ƒo"
+LABEL description="ãƒ†ã‚¹ãƒˆã€‚XXã®ã‚µãƒ¼ãƒ"
 
-# ƒCƒ“ƒXƒg[ƒ‹
+# ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 # RUN apt-get update
 # RUN apt-get install -y apache2
 # RUN apt-get install -y git
 
-# ƒCƒ“ƒXƒg[ƒ‹(AlpineLinux—p)
+# ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«(AlpineLinuxç”¨)
 RUN apk update
 RUN apk add bash
 RUN apk add apache2
@@ -22,18 +22,18 @@ RUN apk add git
 # RUN apk add subversion
 
 
-# ŠeŠÂ‹«•Ï”‚ğİ’è
+# å„ç’°å¢ƒå¤‰æ•°ã‚’è¨­å®š
 ENV USER jumborin
 ENV HOME /home/${USER}
 ENV SHELL /bin/bash
 ENV PASS p@ssw0rd
 
-# ˆê”Êƒ†[ƒU[ƒAƒJƒEƒ“ƒg‚ğ’Ç‰Á
+# ä¸€èˆ¬ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã‚’è¿½åŠ 
 RUN useradd -m ${USER}
 
-# ˆê”Êƒ†[ƒU[‚ÉsudoŒ ŒÀ‚ğ•t—^
+# ä¸€èˆ¬ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«sudoæ¨©é™ã‚’ä»˜ä¸
 RUN gpasswd -a ${USER} sudo
 
-# ˆê”Êƒ†[ƒU[‚ÌƒpƒXƒ[ƒhİ’è
+# ä¸€èˆ¬ãƒ¦ãƒ¼ã‚¶ãƒ¼ã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰è¨­å®š
 RUN echo "${USER}:${PASS}" | chpasswd
 

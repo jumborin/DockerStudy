@@ -1,4 +1,4 @@
-name: Docker Build CI
+name: Alpine Docker Image Build CI
 
 on:
   push:

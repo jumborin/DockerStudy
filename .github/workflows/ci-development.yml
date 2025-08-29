@@ -1,4 +1,4 @@
-name: CI Development Environment
+name: CI Development Environment Build CI
 
 on:
   push:

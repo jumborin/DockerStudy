@@ -1,5 +1,5 @@
 # ベースイメージ
-FROM alpine:3.13
+FROM alpine:3.22.1
 # 参考：https://hub.docker.com/_/alpine
 
 # 作成者

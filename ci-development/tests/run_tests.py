@@ -1,7 +1,7 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By  # type: ignore
+from selenium.webdriver.support.ui import WebDriverWait  # type: ignore
+from selenium.webdriver.support import expected_conditions as EC  # type: ignore
 import time
 
 def test_gitlab_access():

@@ -1,13 +1,13 @@
-# ‹N“®•û–@
-## ‹N“®•û–@
-- cd [–{ƒtƒHƒ‹ƒ_]‚ÅƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚ðˆÚ“®
+# èµ·å‹•æ–¹æ³•
+## èµ·å‹•æ–¹æ³•
+- cd [æœ¬ãƒ•ã‚©ãƒ«ãƒ€]ã§ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ç§»å‹•
 - docker-compose up -d
 
-## ƒAƒNƒZƒX•û–@
-- ƒuƒ‰ƒEƒU‚Åhttp://localhost‚ÉƒAƒNƒZƒX
+## ã‚¢ã‚¯ã‚»ã‚¹æ–¹æ³•
+- ãƒ–ãƒ©ã‚¦ã‚¶ã§http://localhostã«ã‚¢ã‚¯ã‚»ã‚¹
 
-## ‰ŠúƒpƒXƒ[ƒh@¦‰‰ñƒƒOƒCƒ“Žž‚ÉƒpƒXƒ[ƒh•ÏX
+## åˆæœŸãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã€€â€»åˆå›žãƒ­ã‚°ã‚¤ãƒ³æ™‚ã«ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰å¤‰æ›´
 - username: root
 - password: 5iveL!fe
 
-ˆÈã
+ä»¥ä¸Š

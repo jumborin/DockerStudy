@@ -19,7 +19,7 @@ jobs:
     - name: Wait for services
       run: |
         sleep 30
-        docker compose ps
+        docker compose -f ci-development/docker-compose.yml ps
       
     - name: Install Library
       run: docker exec python-1 pip install selenium

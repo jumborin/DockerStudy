@@ -21,11 +21,8 @@ jobs:
         sleep 30
         docker compose -f ci-development/docker-compose.yml ps
       
-    - name: Install Library
-      run: docker exec python pip install selenium
-
     - name: Run tests
-      run: docker compose -f ci-development/docker-compose.yml run --rm python python /tests/run_tests.py
+      run: docker compose -f ci-development/docker-compose.yml run --rm python bash -c "pip install selenium && python /tests/run_tests.py"
       
     - name: Stop services
       run: docker compose -f ci-development/docker-compose.yml down

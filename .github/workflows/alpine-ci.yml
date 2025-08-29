@@ -7,7 +7,7 @@ on:
     paths: [ 'alpine/**' ]
 
 jobs:
-  build:
+  alpine-build-test:
     runs-on: ubuntu-latest
     
     steps:

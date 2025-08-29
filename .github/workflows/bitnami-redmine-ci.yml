@@ -2,8 +2,6 @@ name: Bitnami Redmine CI
 
 on:
   push:
-    branches: [ main, master ]
-    paths: [ 'bitnamiRedmine/**' ]
   pull_request:
     branches: [ main, master ]
     paths: [ 'bitnamiRedmine/**' ]

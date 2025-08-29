@@ -3,7 +3,7 @@ FROM alpine:3.13
 # 参考：https://hub.docker.com/_/alpine
 
 # 作成者
-MAINTAINER jumborin
+LABEL maintainer="jumborin"
 
 # イメージラベル
 LABEL version="1.0"

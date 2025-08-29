@@ -14,7 +14,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Start CI/CD services
-      run: docker compose -f ci-development/docker-compose.yml up -d selenium jenkins
+      run: docker compose -f ci-development/docker-compose.yml up -d
       
     - name: Wait for services
       run: |
@@ -22,7 +22,7 @@ jobs:
         docker compose -f ci-development/docker-compose.yml ps
       
     - name: Install Library
-      run: docker exec python-1 pip install selenium
+      run: docker exec python pip install selenium
 
     - name: Run tests
       run: docker compose -f ci-development/docker-compose.yml run --rm python python /tests/run_tests.py

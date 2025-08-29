@@ -19,6 +19,7 @@ RUN apk update
 RUN apk add bash
 RUN apk add apache2
 RUN apk add git
+RUN apk add sudo
 # RUN apk add subversion
 
 
@@ -29,10 +30,10 @@ ENV SHELL /bin/bash
 ENV PASS p@ssw0rd
 
 # 一般ユーザーアカウントを追加
-RUN useradd -m ${USER}
+RUN adduser -D -s /bin/bash ${USER}
 
 # 一般ユーザーにsudo権限を付与
-RUN gpasswd -a ${USER} sudo
+RUN echo "${USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # 一般ユーザーのパスワード設定
 RUN echo "${USER}:${PASS}" | chpasswd

@@ -9,20 +9,20 @@ on:
     paths: [ 'ci-development/**' ]
 
 jobs:
-  test:
+  ci-development-test:
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v3
     
     - name: Start CI/CD services
-      run: docker-compose -f ci-development/docker-compose.yml up -d selenium jenkins
+      run: docker compose -f ci-development/docker-compose.yml up -d selenium jenkins
       
     - name: Wait for services
       run: sleep 30
       
     - name: Run tests
-      run: docker-compose -f ci-development/docker-compose.yml run --rm python python /tests/run_tests.py
+      run: docker compose -f ci-development/docker-compose.yml run --rm python python /tests/run_tests.py
       
     - name: Stop services
-      run: docker-compose -f ci-development/docker-compose.yml down
+      run: docker compose -f ci-development/docker-compose.yml down

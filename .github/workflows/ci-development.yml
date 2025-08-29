@@ -1,0 +1,28 @@
+name: CI Development Environment
+
+on:
+  push:
+    branches: [ main, master ]
+    paths: [ 'ci-development/**' ]
+  pull_request:
+    branches: [ main, master ]
+    paths: [ 'ci-development/**' ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Start CI/CD services
+      run: docker-compose -f ci-development/docker-compose.yml up -d selenium jenkins
+      
+    - name: Wait for services
+      run: sleep 30
+      
+    - name: Run tests
+      run: docker-compose -f ci-development/docker-compose.yml run --rm python python /tests/run_tests.py
+      
+    - name: Stop services
+      run: docker-compose -f ci-development/docker-compose.yml down

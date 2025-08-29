@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlab
+    hostname: gitlab
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://localhost:8081'
+    ports:
+      - "8081:80"
+      - "8443:443"
+      - "2222:22"
+    volumes:
+      - gitlab-config:/etc/gitlab
+      - gitlab-logs:/var/log/gitlab
+      - gitlab-data:/var/opt/gitlab
+
+  selenium:
+    image: selenium/standalone-edge:latest
+    container_name: selenium
+    ports:
+      - "4444:4444"
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    environment:
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
+      JENKINS_OPTS: "--prefix=/jenkins"
+
+  python:
+    image: python:3.8
+    container_name: python
+    volumes:
+      - ./tests:/tests
+    command: bash -c "pip install selenium && tail -f /dev/null"
+    depends_on:
+      - selenium
+
+volumes:
+  gitlab-config:
+  gitlab-logs:
+  gitlab-data:
+  jenkins_home:
+  
+  

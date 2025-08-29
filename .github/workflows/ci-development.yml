@@ -13,14 +13,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install Library
-      run: pip install selenium
-    
     - name: Start CI/CD services
       run: docker compose -f ci-development/docker-compose.yml up -d selenium jenkins
       
     - name: Wait for services
       run: sleep 30
+      
+    - name: Install Library
+      run: docker exec python pip install selenium
       
     - name: Run tests
       run: docker compose -f ci-development/docker-compose.yml run --rm python python /tests/run_tests.py

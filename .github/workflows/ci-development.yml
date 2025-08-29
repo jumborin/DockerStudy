@@ -17,11 +17,13 @@ jobs:
       run: docker compose -f ci-development/docker-compose.yml up -d selenium jenkins
       
     - name: Wait for services
-      run: sleep 30
+      run: |
+        sleep 30
+        docker compose ps
       
     - name: Install Library
-      run: docker exec python pip install selenium
-      
+      run: docker exec python-1 pip install selenium
+
     - name: Run tests
       run: docker compose -f ci-development/docker-compose.yml run --rm python python /tests/run_tests.py
       

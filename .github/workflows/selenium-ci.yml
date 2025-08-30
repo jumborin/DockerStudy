@@ -2,8 +2,6 @@ name: Selenium Grid CI
 
 on:
   push:
-    branches: [ main, master ]
-    paths: [ 'selenium/**' ]
   pull_request:
     branches: [ main, master ]
     paths: [ 'selenium/**' ]

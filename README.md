@@ -1,9 +1,15 @@
 # DockerStudy
 [![alpine-ci](https://github.com/jumborin/DockerStudy/actions/workflows/alpine-ci.yml/badge.svg)](https://github.com/jumborin/DockerStudy/actions/workflows/alpine-ci.yml)
+
 [![bitnami-redmine-ci](https://github.com/jumborin/DockerStudy/actions/workflows/bitnami-redmine-ci.yml/badge.svg)](https://github.com/jumborin/DockerStudy/actions/workflows/bitnami-redmine-ci.yml)
+
 [![ci-development-ci](https://github.com/jumborin/DockerStudy/actions/workflows/ci-development.yml/badge.svg)](https://github.com/jumborin/DockerStudy/actions/workflows/ci-development.yml)
+
 [![gitlab-ci](https://github.com/jumborin/DockerStudy/actions/workflows/gitlab-ci.yml/badge.svg)](https://github.com/jumborin/DockerStudy/actions/workflows/gitlab-ci.yml)
+
 [![selenium-ci](https://github.com/jumborin/DockerStudy/actions/workflows/selenium-ci.yml/badge.svg)](https://github.com/jumborin/DockerStudy/actions/workflows/selenium-ci.yml)
+
+[![zabbix-ci](https://github.com/jumborin/DockerStudy/actions/workflows/zabbix-ci.yml/badge.svg)](https://github.com/jumborin/DockerStudy/actions/workflows/zabbix-ci.yml)
 
 Windows10機でのDocker利用勉強用リポジトリ
 

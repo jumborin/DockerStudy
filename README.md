@@ -8,6 +8,7 @@
 [![gitlab-ci](https://github.com/jumborin/DockerStudy/actions/workflows/gitlab-ci.yml/badge.svg)](https://github.com/jumborin/DockerStudy/actions/workflows/gitlab-ci.yml)
 
 [![selenium-ci](https://github.com/jumborin/DockerStudy/actions/workflows/selenium-ci.yml/badge.svg)](https://github.com/jumborin/DockerStudy/actions/workflows/selenium-ci.yml)
+[![wordpress-ci](https://github.com/jumborin/DockerStudy/actions/workflows/wordpress-ci.yml/badge.svg)](https://github.com/jumborin/DockerStudy/actions/workflows/wordpress-ci.yml)
 
 [![zabbix-ci](https://github.com/jumborin/DockerStudy/actions/workflows/zabbix-ci.yml/badge.svg)](https://github.com/jumborin/DockerStudy/actions/workflows/zabbix-ci.yml)
 

@@ -7,7 +7,7 @@ on:
     paths: [ 'bitnamiRedmine/**' ]
 
 jobs:
-  test:
+  bitnami-redmine-test:
     runs-on: ubuntu-latest
     
     steps:

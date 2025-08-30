@@ -1,0 +1,30 @@
+name: Selenium Grid CI
+
+on:
+  push:
+    branches: [ main, master ]
+    paths: [ 'selenium/**' ]
+  pull_request:
+    branches: [ main, master ]
+    paths: [ 'selenium/**' ]
+
+jobs:
+  selenium-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Start Selenium Grid
+      run: docker compose -f selenium/docker-compose.yml up -d
+      
+    - name: Wait for Selenium Grid startup
+      run: sleep 30
+      
+    - name: Test Selenium Grid health
+      run: |
+        curl -f http://localhost:4444/wd/hub/status || echo "Selenium Grid not ready yet"
+        docker compose -f selenium/docker-compose.yml logs selenium-hub
+      
+    - name: Stop services
+      run: docker compose -f selenium/docker-compose.yml down

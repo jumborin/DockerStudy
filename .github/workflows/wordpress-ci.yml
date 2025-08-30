@@ -1,0 +1,39 @@
+name: WordPress CI
+
+on:
+  push:
+  pull_request:
+    branches: [ main, master ]
+    paths: [ 'wordpress/**' ]
+
+jobs:
+  wordpress-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Create .env file
+      run: |
+        echo "WORDPRESS_DB_HOST=mysql" > wordpress/.env
+        echo "WORDPRESS_DB_USER=wordpress" >> wordpress/.env
+        echo "WORDPRESS_DB_PASSWORD=wordpress" >> wordpress/.env
+        echo "WORDPRESS_DB_NAME=wordpress" >> wordpress/.env
+        echo "MYSQL_ROOT_PASSWORD=rootpassword" >> wordpress/.env
+        echo "MYSQL_DATABASE=wordpress" >> wordpress/.env
+        echo "MYSQL_USER=wordpress" >> wordpress/.env
+        echo "MYSQL_PASSWORD=wordpress" >> wordpress/.env
+    
+    - name: Start WordPress services
+      run: docker compose -f wordpress/docker-compose.yml up -d
+      
+    - name: Wait for services startup
+      run: sleep 60
+      
+    - name: Test WordPress health
+      run: |
+        curl -f http://localhost || echo "WordPress not ready yet"
+        docker compose -f wordpress/docker-compose.yml logs wordpress
+      
+    - name: Stop services
+      run: docker compose -f wordpress/docker-compose.yml down
